@@ -10,9 +10,10 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class ActorDal_Hibernate implements IActorDal{
+public class ActorDal_Hibernate implements IActorDal {
 
     private EntityManager entityManager;
+
     @Autowired
     public ActorDal_Hibernate(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -33,7 +34,7 @@ public class ActorDal_Hibernate implements IActorDal{
     @Override
     public void delete(Actor actor) {
         Session session = entityManager.unwrap(Session.class);
-        Actor actorToDelete = session.get(Actor.class,actor.getActor_id());
+        Actor actorToDelete = session.get(Actor.class, actor.getActor_id());
         session.delete(actorToDelete);
     }
 
@@ -41,15 +42,14 @@ public class ActorDal_Hibernate implements IActorDal{
     @Transactional
     public List<Actor> getAll() {
         Session session = entityManager.unwrap(Session.class);
-        List<Actor> actorList = session.createQuery("from Actor ",Actor.class).getResultList();
+        List<Actor> actorList = session.createQuery("from Actor ", Actor.class).getResultList();
         return actorList;
     }
 
     @Override
     public Actor getById(int actor_id) {
         Session session = entityManager.unwrap(Session.class);
-        Actor actor = session.get(Actor.class,actor_id);
-        System.out.println(actor.getFirst_name());
+        Actor actor = session.get(Actor.class, actor_id);
         return actor;
     }
 }

@@ -1,6 +1,7 @@
 package com.deniz.sakilamysql.Entities;
 
 import javax.persistence.*;
+
 @Entity
 @Table(name = "actor")
 public class Actor {
@@ -15,7 +16,8 @@ public class Actor {
     @Column(name = "last_update")
     private String last_update;
 
-    public Actor() {}
+    public Actor() {
+    }
 
     public Actor(int actor_id, String first_name, String last_name, String last_update) {
         this.actor_id = actor_id;

@@ -8,10 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+
 @Repository
-public class CategoryDAL_Hibernate implements ICategoryDAL{
+public class CategoryDAL_Hibernate implements ICategoryDAL {
 
     private EntityManager entityManager;
+
     @Autowired
     public CategoryDAL_Hibernate(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -32,7 +34,7 @@ public class CategoryDAL_Hibernate implements ICategoryDAL{
     @Override
     public void delete(Category category) {
         Session session = entityManager.unwrap(Session.class);
-        Category categoryToDelete = session.get(Category.class,category.getCategory_id());
+        Category categoryToDelete = session.get(Category.class, category.getCategory_id());
         session.delete(categoryToDelete);
     }
 
@@ -40,14 +42,14 @@ public class CategoryDAL_Hibernate implements ICategoryDAL{
     @Transactional
     public List<Category> getAll() {
         Session session = entityManager.unwrap(Session.class);
-        List<Category> categories = session.createQuery("from Category ",Category.class).getResultList();
+        List<Category> categories = session.createQuery("from Category ", Category.class).getResultList();
         return categories;
     }
 
     @Override
     public Category getById(int category_id) {
         Session session = entityManager.unwrap(Session.class);
-        Category category = session.get(Category.class,category_id);
+        Category category = session.get(Category.class, category_id);
         return category;
     }
 }

@@ -3,18 +3,19 @@ package com.deniz.sakilamysql.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="category")
+@Table(name = "category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="category_id")
+    @Column(name = "category_id")
     private int category_id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="last_update")
+    @Column(name = "last_update")
     private String last_update;
 
-    public Category() {}
+    public Category() {
+    }
 
     public Category(int category_id, String name, String last_update) {
         this.category_id = category_id;

@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
-public class ActorManager implements IActorService{
+public class ActorManager implements IActorService {
 
     private IActorDal actorDal;
 

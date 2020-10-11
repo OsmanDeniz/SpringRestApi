@@ -18,28 +18,28 @@ public class ActorController {
     }
 
     @PostMapping("/add")
-    public void add(@RequestBody Actor actor){
+    public void add(@RequestBody Actor actor) {
         this.service.add(actor);
     }
 
     @PostMapping("/update")
-    public void update(@RequestBody Actor actor){
+    public void update(@RequestBody Actor actor) {
         this.service.update(actor);
     }
 
     @PostMapping("/delete")
-    public void delete(@RequestBody Actor actor){
+    public void delete(@RequestBody Actor actor) {
         this.service.delete(actor);
     }
 
     @GetMapping("/")
-    public List<Actor> getAll(){
+    public List<Actor> getAll() {
         return this.service.getAll();
     }
 
 
     @GetMapping("/{id}")
-    public Actor getById(@PathVariable int id){
+    public Actor getById(@PathVariable int id) {
         return service.getById(id);
     }
 

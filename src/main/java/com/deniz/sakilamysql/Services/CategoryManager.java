@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 public class CategoryManager implements ICategoryService {
 
     private ICategoryDAL categoryDAL;
+
     @Autowired
     public CategoryManager(ICategoryDAL categoryDAL) {
         this.categoryDAL = categoryDAL;
