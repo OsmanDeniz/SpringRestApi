@@ -42,6 +42,7 @@ public class FilmActorManager implements IFilmActor_Service{
     }
 
     @Override
+    @Transactional
     public List<FilmActor> getFilmByActorId(int actor_id) {
         return this.filmActorDAL.getFilmByActorId(actor_id);
     }
