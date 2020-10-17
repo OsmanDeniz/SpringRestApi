@@ -34,7 +34,7 @@ public class PaymentDAL_Hibernate implements IPaymentDAL {
     public void delete(Payment payment) {
         Session session = this.manager.unwrap(Session.class);
         Payment paymentToDelete = session.get(Payment.class,payment.getPayment_id());
-        session.delete(payment);
+        session.delete(paymentToDelete);
     }
 
     @Override
